@@ -23,7 +23,7 @@ abstract class BaseMvvmActivity<VM : BaseViewModel<R>,
         super.onCreate(savedInstanceState)
         viewModel = provideViewModel()
         binding = DataBindingUtil.setContentView(this, provideLayoutId())
-        binding.setVariable(BR.StudentViewModel, viewModel) //add viewModel to xml
+//        binding.setVariable(BR.StudentViewModel, viewModel) //add viewModel to xml
 
         router = provideRouter()
     }

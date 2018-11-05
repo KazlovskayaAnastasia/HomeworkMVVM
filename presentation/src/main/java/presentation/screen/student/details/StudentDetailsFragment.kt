@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.View
 import com.nastia.administrator.presentation.R
 import com.nastia.administrator.presentation.databinding.FragmentStudentDetailsBinding
-import com.nastia.administrator.presentation.databinding.FragmentStudentListBinding
 import presentation.base.BaseMvvmFragment
 import presentation.screen.student.StudentRouter
-import presentation.screen.student.list.StudentListViewModel
 
 class StudentDetailsFragment : BaseMvvmFragment<StudentDetailsViewModel, FragmentStudentDetailsBinding, StudentRouter>() {
 

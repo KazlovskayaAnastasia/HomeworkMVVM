@@ -2,12 +2,8 @@ package presentation.screen.student.list
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.recyclerview.R.attr.layoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
-import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.nastia.administrator.presentation.R
 import com.nastia.administrator.presentation.databinding.FragmentStudentListBinding

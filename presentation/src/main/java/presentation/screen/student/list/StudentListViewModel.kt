@@ -6,7 +6,6 @@ import factories.UseCaseProvider
 import io.reactivex.rxkotlin.subscribeBy
 import presentation.base.BaseViewModel
 import presentation.screen.student.StudentRouter
-import java.util.*
 
 class StudentListViewModel : BaseViewModel<StudentRouter>() {
     override fun onResume() {
@@ -23,7 +22,7 @@ class StudentListViewModel : BaseViewModel<StudentRouter>() {
 
     init {
 
-        //ToDo При клике на юзера вызывать router.goToStudentDetails()
+        //ToDo При клике на юзера вызывать router.goToDetails()
         //adapter.setListener
 
         isProgressEnabled.set(true)

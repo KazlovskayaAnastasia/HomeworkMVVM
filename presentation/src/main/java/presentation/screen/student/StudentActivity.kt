@@ -17,7 +17,7 @@ class StudentActivity : BaseMvvmActivity<StudentViewModel, ActivityStudentLandBi
                 .get(StudentViewModel::class.java)
     }
 
-    override fun provideLayoutId(): Int = R.layout.activity_student_main
+    override fun provideLayoutId(): Int = R.layout.activity_main
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)

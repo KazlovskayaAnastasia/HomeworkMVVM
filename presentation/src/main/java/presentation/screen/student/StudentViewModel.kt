@@ -7,7 +7,6 @@ import factories.UseCaseProvider
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.ReplaySubject
 import presentation.base.BaseViewModel
 import java.util.concurrent.TimeUnit

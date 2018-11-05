@@ -21,7 +21,6 @@ abstract class BaseMvvmFragment<VM : BaseViewModel<R>,
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, provideLayoutId(), container,false)
-
         viewModel = provideViewModel()
 
         return binding.root
@@ -37,6 +36,7 @@ abstract class BaseMvvmFragment<VM : BaseViewModel<R>,
     override fun onResume() {
         super.onResume()
         viewModel.addRouter(router)
+        viewModel.onResume()
     }
 
     override fun onPause() {

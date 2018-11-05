@@ -1,20 +1,20 @@
 package repositories
 
-import entity.Student
+import entity.Owl
 import entity.StudentSearch
 import io.reactivex.Completable
 import io.reactivex.Observable
 
 interface StudentRepository: BaseRepository {
 
-    fun get(): Observable<List<Student>>
+    fun get(): Observable<List<Owl>>
 
-    fun search(search: StudentSearch):Observable<List<Student>>
+    fun search(search: StudentSearch):Observable<List<Owl>>
 
     //ToDo реализовать возможность получить одного студента по ID
-    //fun get(id:String):Observable<Student>
+    //fun get(id:String):Observable<Owl>
 
-    fun update(student: Student): Completable
+    fun update(owl: Owl): Completable
 
     fun delete(studentId: String): Completable
 }

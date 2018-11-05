@@ -1,8 +1,8 @@
 package net
 
 import com.google.gson.GsonBuilder
-import entity.StudentRequest
-import entity.StudentResponse
+import entity.OwlRequest
+import entity.OwlResponse
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -36,19 +36,23 @@ class RestService(private val apiUrl: String) {
         restApi = retrofit.create(RestApi::class.java)
     }
 
-    fun getStudents() : Observable<List<StudentResponse>>{
-        return restApi.getStudents()
-    }
+//    fun getStudents() : Observable<List<OwlResponse>>{
+//        return restApi.getStudents()
+//    }
+//
+//    fun getStudentsById(id:String) : Observable<OwlResponse>{
+//        return restApi.getStudentsById(id)
+//    }
+//
+//    fun updateStudent(owl : OwlRequest) : Observable<OwlResponse>{
+//        return restApi.updateStudent(owl)
+//    }
+//
+//    fun deleteStudent(id:String) : Observable<Void>{
+//        return restApi.deleteStudent(id)
+//    }
 
-    fun getStudentsById(id:String) : Observable<StudentResponse>{
-        return restApi.getStudentsById(id)
-    }
-
-    fun updateStudent(student : StudentRequest) : Observable<StudentResponse>{
-        return restApi.updateStudent(student)
-    }
-
-    fun deleteStudent(id:String) : Observable<Void>{
-        return restApi.deleteStudent(id)
+    fun getOwls():Observable<List<OwlResponse>>{
+        return restApi.getOwls()
     }
 }

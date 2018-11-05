@@ -1,5 +1,5 @@
 package entity
 
-fun StudentResponse.transformToDomain() : Student{
-    return Student(id = id, name = name, age = age)
+fun OwlResponse.transformToDomain() : Owl{
+    return Owl(id = id, name = name, age = age, pic = pic)
 }

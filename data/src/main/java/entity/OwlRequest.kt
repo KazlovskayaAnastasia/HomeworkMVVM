@@ -2,8 +2,8 @@ package entity
 
 import com.google.gson.annotations.SerializedName
 
-data class StudentResponse (
-        @SerializedName("id")
+data class OwlRequest (
+        @SerializedName("objectId")
         val id:String,
 
         @SerializedName("name")

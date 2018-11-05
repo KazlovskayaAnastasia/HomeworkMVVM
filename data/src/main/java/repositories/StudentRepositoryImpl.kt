@@ -1,6 +1,6 @@
 package repositories
 
-import entity.Student
+import entity.Owl
 import entity.StudentSearch
 import entity.transformToDomain
 import io.reactivex.Completable
@@ -8,9 +8,9 @@ import io.reactivex.Observable
 import net.RestService
 
 class StudentRepositoryImpl(val apiService: RestService) : StudentRepository { // singleton on fact
-    override fun get(): Observable<List<Student>> {
+    override fun get(): Observable<List<Owl>> {
 
-        return apiService.getStudents()
+        return apiService.getOwls()
                 .map {
                     it.map {
                         it.transformToDomain()
@@ -18,25 +18,25 @@ class StudentRepositoryImpl(val apiService: RestService) : StudentRepository { /
                 }
 
 //        val list = listOf(
-//                Student(0, "Sergey", 25),
-//                Student(1, "Kate", 30),
-//                Student(2, "Alice", 20),
-//                Student(3, "Alex", 21),
-//                Student(4, "Ivan", 18))
+//                Owl(0, "Sergey", 25),
+//                Owl(1, "Kate", 30),
+//                Owl(2, "Alice", 20),
+//                Owl(3, "Alex", 21),
+//                Owl(4, "Ivan", 18))
 //
 //        return Observable.just(list)
     }
 
-    override fun search(search: StudentSearch): Observable<List<Student>> {
+    override fun search(search: StudentSearch): Observable<List<Owl>> {
 
-        val list = listOf<Student>(
-                Student(0, "Kate", 30),
-                Student(1, "Alice", 20))
+        val list = listOf<Owl>(
+                Owl("0", "Kate", 30, "http://rylik.ru/uploads/posts/2015-07/1436173430_owl-collection-1-11.jpg"),
+                Owl("1", "Alice", 20, "http://rylik.ru/uploads/posts/2015-07/1436173430_owl-collection-1-11.jpg"))
 
         return Observable.just(list)
     }
 
-    override fun update(student: Student): Completable {
+    override fun update(owl: Owl): Completable {
         return Completable.complete()
     }
 

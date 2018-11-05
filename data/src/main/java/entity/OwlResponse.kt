@@ -2,12 +2,15 @@ package entity
 
 import com.google.gson.annotations.SerializedName
 
-data class StudentRequest (
-        @SerializedName("id")
+data class OwlResponse (
+        @SerializedName("objectId")
         val id:String,
 
         @SerializedName("name")
         val name:String,
 
         @SerializedName("age")
-        val age:Int) : DataEntity
+        val age:Int,
+
+        @SerializedName("pic")
+        val pic:String) : DataEntity

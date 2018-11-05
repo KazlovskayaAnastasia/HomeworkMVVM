@@ -1,6 +1,6 @@
 package com.nastia.administrator.domain.usecases
 
-import entity.Student
+import entity.Owl
 import executor.PostExecutorThread
 import io.reactivex.Observable
 import repositories.StudentRepository
@@ -10,7 +10,7 @@ class GetStudentsUseCase(postExecutorThread: PostExecutorThread,
 
 
 
-    fun get(): Observable<List<Student>> {
+    fun get(): Observable<List<Owl>> {
         return studentRepository.get()
                 .observeOn(postExecutorThread)//шде получить ответ
                 .subscribeOn(workExecutorThread)//где выполнить

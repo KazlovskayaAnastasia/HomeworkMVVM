@@ -1,5 +1,6 @@
 package repositories
 
+import com.nastia.administrator.data.dao.OwlDao
 import entity.Owl
 import entity.StudentSearch
 import entity.transformToDomain
@@ -7,7 +8,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import net.RestService
 
-class StudentRepositoryImpl(val apiService: RestService) : StudentRepository { // singleton on fact
+class StudentRepositoryImpl(val apiService: RestService, val owlDao: OwlDao) : StudentRepository { // singleton on fact
     override fun get(): Observable<List<Owl>> {
 
         return apiService.getOwls()

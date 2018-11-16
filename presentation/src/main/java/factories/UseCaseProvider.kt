@@ -1,5 +1,7 @@
 package factories
 
+import app.App
+import com.nastia.administrator.data.AppDatabase
 import com.nastia.administrator.domain.usecases.GetStudentsUseCase
 import com.nastia.administrator.domain.usecases.SearchStudentsUseCase
 import executor.UIThread
@@ -16,15 +18,16 @@ object UseCaseProvider {
 
     fun provideGetStudentUseCase():GetStudentsUseCase{
 
+        val owlDao = AppDatabase.getInstance(App.instance.applicationContext).getOwlDao()
 
-
-        val repository = StudentRepositoryImpl(restService)
+        val repository = StudentRepositoryImpl(restService, owlDao)
 
         val useCase = GetStudentsUseCase(uiThread, repository)
         return useCase
     }
 
     fun provideSearchStudentUseCase(): SearchStudentsUseCase {
-        return SearchStudentsUseCase(uiThread, StudentRepositoryImpl(restService))
+        val owlDao = AppDatabase.getInstance(App.instance.applicationContext).getOwlDao()
+        return SearchStudentsUseCase(uiThread, StudentRepositoryImpl(restService, owlDao))
     }
 }

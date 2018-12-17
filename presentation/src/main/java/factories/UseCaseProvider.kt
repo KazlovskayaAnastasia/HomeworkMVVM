@@ -6,7 +6,7 @@ import com.nastia.administrator.domain.usecases.GetStudentsUseCase
 import com.nastia.administrator.domain.usecases.SearchStudentsUseCase
 import executor.UIThread
 import net.RestService
-import repositories.StudentRepositoryImpl
+import repositories.OwlRepositoryImpl
 
 object UseCaseProvider {
 
@@ -20,7 +20,7 @@ object UseCaseProvider {
 
         val owlDao = AppDatabase.getInstance(App.instance.applicationContext).getOwlDao()
 
-        val repository = StudentRepositoryImpl(restService, owlDao)
+        val repository = OwlRepositoryImpl(restService, owlDao)
 
         val useCase = GetStudentsUseCase(uiThread, repository)
         return useCase
@@ -28,6 +28,6 @@ object UseCaseProvider {
 
     fun provideSearchStudentUseCase(): SearchStudentsUseCase {
         val owlDao = AppDatabase.getInstance(App.instance.applicationContext).getOwlDao()
-        return SearchStudentsUseCase(uiThread, StudentRepositoryImpl(restService, owlDao))
+        return SearchStudentsUseCase(uiThread, OwlRepositoryImpl(restService, owlDao))
     }
 }

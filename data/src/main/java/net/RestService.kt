@@ -1,7 +1,6 @@
 package net
 
 import com.google.gson.GsonBuilder
-import entity.OwlRequest
 import entity.OwlResponse
 import io.reactivex.Observable
 import okhttp3.OkHttpClient

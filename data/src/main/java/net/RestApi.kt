@@ -1,7 +1,5 @@
 package net
 
-import entity.Owl
-import entity.OwlRequest
 import entity.OwlResponse
 import io.reactivex.Observable
 import retrofit2.http.*

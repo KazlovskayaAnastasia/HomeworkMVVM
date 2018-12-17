@@ -1,6 +1,7 @@
 package repositories
 
 import com.nastia.administrator.data.dao.OwlDao
+import com.nastia.administrator.data.transformToDB
 import entity.Owl
 import entity.StudentSearch
 import entity.transformToDomain
@@ -8,25 +9,22 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import net.RestService
 
-class StudentRepositoryImpl(val apiService: RestService, val owlDao: OwlDao) : StudentRepository { // singleton on fact
+class OwlRepositoryImpl(private val apiService: RestService, private val owlDao: OwlDao) : StudentRepository { // singleton on fact
     override fun get(): Observable<List<Owl>> {
 
         return apiService.getOwls()
-                .map {
-                    it.map {
-                        it.transformToDomain()
-                    }
+                .flatMap {
+                    apiService.getOwls()
+                            .doOnNext {
+                                val list = it.map { it.transformToDB() }
+                                owlDao.deleteAll()
+                                owlDao.insert(list)
+                            }
+                            .map { list ->
+                                list.map { student -> student.transformToDomain() }
+                            }
                 }
-
-//        val list = listOf(
-//                Owl(0, "Sergey", 25),
-//                Owl(1, "Kate", 30),
-//                Owl(2, "Alice", 20),
-//                Owl(3, "Alex", 21),
-//                Owl(4, "Ivan", 18))
-//
-//        return Observable.just(list)
-    }
+}
 
     override fun search(search: StudentSearch): Observable<List<Owl>> {
 

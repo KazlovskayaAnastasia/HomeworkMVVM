@@ -10,4 +10,7 @@ data class OwlRequest (
         val name:String,
 
         @SerializedName("age")
-        val age:Int) : DataEntity
+        val age:Int,
+
+        @SerializedName("pic")
+        val pic:String) : DataEntity
